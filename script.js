@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const list = document.getElementById("infinite-list");
-    let itemCount = 10;
+    const list = document.getElementById("infi-list");
 
-    // Function to add items
+    // Function to add list items
     function addItems(count) {
         for (let i = 0; i < count; i++) {
             let li = document.createElement("li");
@@ -11,14 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Add initial 10 items
-    addItems(itemCount);
+    // Add 10 items initially
+    addItems(10);
 
-    // Add 2 items when scrolled to bottom
-    window.addEventListener("scroll", function () {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    // Check if user scrolled to bottom and add 2 more items
+    list.addEventListener("scroll", function () {
+        if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
             addItems(2);
         }
     });
 });
-
